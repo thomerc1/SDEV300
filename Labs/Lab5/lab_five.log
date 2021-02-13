@@ -1,0 +1,8 @@
+INFO root Starting application...
+ERROR root Traceback (most recent call last):
+  File "lab_five.py", line 71, in main
+    analyze_population_data(population_data_frame)
+  File "lab_five.py", line 144, in analyze_population_data
+    print(input_confirmation)
+UnboundLocalError: local variable 'input_confirmation' referenced before assignment
+

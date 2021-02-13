@@ -1,0 +1,32 @@
+Run started:2021-02-12 01:52:02.067090
+
+Test results:
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: ''
+   Severity: Low   Confidence: Medium
+   Location: ../../Labs/Lab2/lab_two.py:161
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b105_hardcoded_password_string.html
+160	    char_list = string.ascii_letters + string.digits + string.punctuation
+161	    password = ""
+162	
+163	    #Generate the password by randomly selecting from the char list
+164	    #until all requirements are met
+165	    while not pw_rqmts_met:
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 275
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 1.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 1.0
+		High: 0.0
+Files skipped (0):

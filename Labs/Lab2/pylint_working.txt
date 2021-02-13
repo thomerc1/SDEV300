@@ -1,0 +1,51 @@
+************* Module lab_two
+lab_two.py:63:0: R0914: Too many local variables (16/15) (too-many-locals)
+lab_two.py:72:4: C0103: Variable name "MIN_PW_ATTRIB_LEN" doesn't conform to snake_case naming style (invalid-name)
+lab_two.py:73:4: C0103: Variable name "MIN_ATTRIB_LEN" doesn't conform to snake_case naming style (invalid-name)
+lab_two.py:74:4: C0103: Variable name "MAX_ATTRIB_LEN" doesn't conform to snake_case naming style (invalid-name)
+lab_two.py:137:8: R1723: Unnecessary "else" after "break" (no-else-break)
+lab_two.py:63:0: R0912: Too many branches (14/12) (too-many-branches)
+
+------------------------------------------------------------------
+Your code has been rated at 9.27/10 (previous run: 9.27/10, +0.00)
+
+************* Module lab_two
+lab_two.py:76:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:130:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:161:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:69:0: R0912: Too many branches (14/12) (too-many-branches)
+lab_two.py:160:0: C0116: Missing function or method docstring (missing-function-docstring)
+lab_two.py:174:8: W0612: Unused variable 'attrib' (unused-variable)
+lab_two.py:174:16: W0612: Unused variable 'solicit' (unused-variable)
+lab_two.py:176:8: W0612: Unused variable 'attrib_set' (unused-variable)
+
+------------------------------------------------------------------
+Your code has been rated at 9.00/10 (previous run: 9.00/10, +0.00)
+
+************* Module lab_two
+lab_two.py:21:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:79:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:136:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:49:15: E0602: Undefined variable 'validate_input' (undefined-variable)
+lab_two.py:50:16: E0602: Undefined variable 'generate_secure_password' (undefined-variable)
+lab_two.py:22:4: W0612: Unused variable 'input_verified' (unused-variable)
+lab_two.py:182:-1: W0105: String statement has no effect (pointless-string-statement)
+lab_two.py:10:0: W0611: Unused import string (unused-import)
+lab_two.py:11:0: W0611: Unused import secrets (unused-import)
+
+------------------------------------------------------------------
+Your code has been rated at 7.54/10 (previous run: 9.00/10, -1.46)
+
+************* Module lab_two
+lab_two.py:41:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:258:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:297:0: C0303: Trailing whitespace (trailing-whitespace)
+lab_two.py:25:0: R0915: Too many statements (56/50) (too-many-statements)
+lab_two.py:298:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-------------------------------------------------------------------
+Your code has been rated at 9.66/10 (previous run: 10.00/10, -0.34)
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+

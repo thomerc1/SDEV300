@@ -1,0 +1,19 @@
+************* Module lab_one
+lab_one.py:28:72: C0303: Trailing whitespace (trailing-whitespace)
+lab_one.py:55:76: C0303: Trailing whitespace (trailing-whitespace)
+lab_one.py:92:4: W0603: Using the global statement (global-statement)
+lab_one.py:109:4: W0603: Using the global statement (global-statement)
+lab_one.py:126:4: W0603: Using the global statement (global-statement)
+lab_one.py:137:15: R1716: Simplify chained comparison between the operands (chained-comparison)
+lab_one.py:150:4: W0603: Using the global statement (global-statement)
+lab_one.py:171:4: W0603: Using the global statement (global-statement)
+lab_one.py:188:4: W0603: Using the global statement (global-statement)
+lab_one.py:215:4: W0702: No exception type(s) specified (bare-except)
+
+------------------------------------------------------------------
+Your code has been rated at 9.23/10 (previous run: 9.23/10, +0.00)
+
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.23/10, +0.77)
+
