@@ -69,9 +69,10 @@ def main():
                 pop_file = open(pop_f_name, 'r')
                 population_data_frame = pd.read_csv(pop_file)
                 analyze_population_data(population_data_frame)
-            except Exception:
-                ret_code = -1
+            except (FileNotFoundError, Exception):
+                print("AN ERROR OCCURRED...")
                 logging.error(traceback.format_exc())
+                input("Hit <ENTER> to continue...")
             finally:
                 pop_file.close()
 
@@ -81,19 +82,20 @@ def main():
                 housing_file = open(housing_f_name, 'r')
                 housing_data_frame = pd.read_csv(housing_file)
                 analyze_housing_data(housing_data_frame)
-            except Exception:
-                ret_code = -1
+            except (FileNotFoundError, Exception):
+                print("AN ERROR OCCURRED...")
                 logging.error(traceback.format_exc())
+                input("Hit <ENTER> to continue...")
             finally:
                 housing_file.close()
 
         elif user_input == '3':  # Exit upon user request
-            sys.exit(0)
+            break
         else:
             print("Make a selection of 1 - 3...")
             input("Hit <ENTER> to continue...")
 
-        return ret_code
+    sys.exit(0)
 
 
 def analyze_population_data(population_data_frame):
@@ -130,12 +132,13 @@ def analyze_population_data(population_data_frame):
         elif user_input.lower() == 'd':
             valid_operation_selected = True
         else:
-            input_confirmation = "[ERROR] Invalid selection..."
+            print("[ERROR] Invalid selection...")
 
     if col != -1:
         print("You selected {}".format(pop_df.columns[col].title()))
         print("The statistics for this column are: ")
-        print(pop_df.iloc[col].describe())
+        print(pop_df.describe()[pop_df.columns[col]].apply(lambda val:
+                                                           format(val, '.3f')))
         print("The histogram for this column is now displayed...")
         pop_df.hist(column=pop_df.columns[col])
         plt.show()
@@ -189,7 +192,7 @@ def analyze_housing_data(housing_data_frame):
     if col != -1:
         print("You selected {}".format(housing_df.columns[col].title()))
         print("The statistics for this column are: ")
-        print(housing_df.iloc[col].describe())
+        print(housing_df.describe()[housing_df.columns[col]])
         print("The histogram for this column is now displayed...")
         housing_df.hist(column=housing_df.columns[col])
         plt.show()
