@@ -29,13 +29,14 @@ import matplotlib.pyplot as plt
 import ui_common as uicom
 
 LOG_CONFIG = "{}/log_config.ini".format(os.getcwd())
-print(LOG_CONFIG)
 fileConfig(LOG_CONFIG)
 
 
 def main():
     """
-    main method
+    main method that will loop on the primary options of the command line
+    user interface. It will not exit unless the user specifically enters the
+    option to exit the application.
     :return: Main returns 0 upon no issue and -1 upon issue
     """
 
@@ -47,8 +48,6 @@ def main():
     # Filenames
     pop_f_name = "PopChange.csv"  # Population Data
     housing_f_name = "Housing.csv"  # Housing Data
-
-    ret_code = 0
 
     while True:
         uicom.clear_screen()
@@ -66,6 +65,7 @@ def main():
         if user_input == '1':  # Population Data
             print("You have selected Population Data")
             try:
+                # Set the dataframe from csv and pass to the appropriate method
                 pop_file = open(pop_f_name, 'r')
                 population_data_frame = pd.read_csv(pop_file)
                 analyze_population_data(population_data_frame)
@@ -79,6 +79,7 @@ def main():
         elif user_input == '2':  # Housing Data
             print("You have selected Housing Data")
             try:
+                # Set the dataframe from csv and pass to the appropriate method
                 housing_file = open(housing_f_name, 'r')
                 housing_data_frame = pd.read_csv(housing_file)
                 analyze_housing_data(housing_data_frame)
@@ -105,13 +106,18 @@ def analyze_population_data(population_data_frame):
     :param population_data_frame:
     :return:
     """
+    # Quantiles for clipping outliers
+    LOWER_QUANTILE = .15
+    UPPER_QUANTILE = .85
 
-    pop_df = population_data_frame
-
+    # Flag and control vars
     valid_operation_selected = False
-
     col = -1
 
+    # Dateframe
+    pop_df = population_data_frame
+
+    # Loop on presenting options until an appropriate user entry
     while not valid_operation_selected:
         print("Select the Column you want to analyze: ")
         print("a.", pop_df.columns[4])
@@ -133,15 +139,31 @@ def analyze_population_data(population_data_frame):
             valid_operation_selected = True
         else:
             print("[ERROR] Invalid selection...")
+            input("Hit <ENTER> to continue...")
 
     if col != -1:
         print("You selected {}".format(pop_df.columns[col].title()))
         print("The statistics for this column are: ")
-        print(pop_df.describe()[pop_df.columns[col]].apply(lambda val:
-                                                           format(val, '.3f')))
-        print("The histogram for this column is now displayed...")
-        pop_df.hist(column=pop_df.columns[col])
+        print(pop_df.describe()[pop_df.columns[col]].apply(
+            lambda val: format(val, '.3f')))
+
+        # Create bin edges limit by the quantile constants, thereby cutting off
+        # some outliers
+        bin_count = 20
+        bins = [pop_df[pop_df.columns[col]].quantile(x / bin_count)
+                for x in range(bin_count)
+                if LOWER_QUANTILE < (x / bin_count) < UPPER_QUANTILE]
+        bins.sort()
+        pop_df.hist(column=pop_df.columns[col], rwidth=.5, bins=bins,
+                    edgecolor='k')
+        plt.xlim([pop_df[pop_df.columns[col]].quantile(LOWER_QUANTILE),
+                  pop_df[pop_df.columns[col]].quantile(UPPER_QUANTILE)])
+        plt.xlabel(pop_df.columns[col], fontsize=14)
+        plt.ylabel("Population", fontsize=14)
+        plt.subplots_adjust(left=0.2)
+        plt.title("Population Data")
         plt.show()
+        print("The histogram for this column is now displayed...")
         input("Hit <ENTER> to continue...")
 
 
@@ -153,11 +175,15 @@ def analyze_housing_data(housing_data_frame):
     :return:
     """
 
+    # Flag and control vars
+    valid_operation_selected = False
+    col = -1  # Init for control below
+
+    # Dataframe
     housing_df = housing_data_frame
 
-    valid_operation_selected = False
-
-    col = -1  # Init for control below
+    # Init x label which is conditionally set
+    x_label = ""
 
     while not valid_operation_selected:
         print("Select the Column you want to analyze: ")
@@ -172,29 +198,40 @@ def analyze_housing_data(housing_data_frame):
         if user_input.lower() == 'a':
             valid_operation_selected = True
             col = 0
+            x_label = "Home Age"
         elif user_input.lower() == 'b':
             valid_operation_selected = True
             col = 1
+            x_label = "Bedrooms"
         elif user_input.lower() == 'c':
             valid_operation_selected = True
             col = 2
+            x_label = "Year Built"
         elif user_input.lower() == 'd':
             valid_operation_selected = True
             col = 4
+            x_label = "Total Rooms"
         elif user_input.lower() == 'e':
             valid_operation_selected = True
             col = 6
+            x_label = "Utilities Cost (dollars)"
         elif user_input.lower() == 'f':
             valid_operation_selected = True
         else:
             print("[ERROR] Invalid selection...")
+            input("Hit <ENTER> to continue...")
 
     if col != -1:
         print("You selected {}".format(housing_df.columns[col].title()))
         print("The statistics for this column are: ")
-        print(housing_df.describe()[housing_df.columns[col]])
+        print(housing_df.describe()[housing_df.columns[col]].apply(
+            lambda val: format(val, '.3f')))
         print("The histogram for this column is now displayed...")
-        housing_df.hist(column=housing_df.columns[col])
+        housing_df.hist(column=housing_df.columns[col], rwidth=.3, bins=15)
+        plt.xlabel(x_label, fontsize=14)
+        plt.ylabel("Quantity Built", fontsize=14)
+        plt.subplots_adjust(left=0.2)
+        plt.title("Housing Data")
         plt.show()
         input("Hit <ENTER> to continue...")
 

@@ -1,0 +1,9 @@
+************* Module lab_five
+lab_five.py:72:20: W0703: Catching too general exception Exception (broad-except)
+lab_five.py:86:20: W0703: Catching too general exception Exception (broad-except)
+lab_five.py:110:4: C0103: Variable name "LOWER_QUANTILE" doesn't conform to snake_case naming style (invalid-name)
+lab_five.py:111:4: C0103: Variable name "UPPER_QUANTILE" doesn't conform to snake_case naming style (invalid-name)
+
+------------------------------------------------------------------
+Your code has been rated at 9.73/10 (previous run: 9.73/10, +0.00)
+
