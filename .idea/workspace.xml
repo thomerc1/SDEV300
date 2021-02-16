@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0693438f-9989-47f3-99dd-f1d6f24aa6c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab5/.~lock.PopChange.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab5/lab_five.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Labs/Lab5/lab_five.py" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab5/lab_five.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab5/log_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab5/log_config.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

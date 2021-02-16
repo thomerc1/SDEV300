@@ -159,7 +159,7 @@ def analyze_population_data(population_data_frame):
         plt.xlim([pop_df[pop_df.columns[col]].quantile(LOWER_QUANTILE),
                   pop_df[pop_df.columns[col]].quantile(UPPER_QUANTILE)])
         plt.xlabel(pop_df.columns[col], fontsize=14)
-        plt.ylabel("Population", fontsize=14)
+        plt.ylabel("Instances of X-Values", fontsize=14)
         plt.subplots_adjust(left=0.2)
         plt.title("Population Data")
         plt.show()
