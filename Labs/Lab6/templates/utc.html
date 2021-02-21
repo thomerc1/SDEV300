@@ -1,0 +1,8 @@
+<!-- Use Jinja2 to extend the base html template -->
+{% extends 'base.html' %}
+
+<!-- Custom body for this page -->
+{% block content %}
+    <h1>Lab 6 Web Application</h1>
+    <p>The current UTC time is: {{ utc_time }}</p>
+{% endblock %}

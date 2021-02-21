@@ -1,0 +1,35 @@
+<!-- Use Jinja2 to extend the base html template -->
+{% extends 'base.html' %}
+
+<!-- Custom body for this page -->
+{% block content %}
+    <header class="header">
+        <h1>Welcome to the Web Application for Lab 6</h1>
+        <h2>This site is dedicated to all things time</h2>
+    </header>
+    <footer class="footer">
+        <h2>You may select from the list of actions:</h2>
+        <ul>
+            <li><a href="/server_time"><h3>View Server Time</h3></a></li>
+            <li><a href="/utc_time"><h3>View UTC Time</h3></a></li>
+            <li><h3>View External Resources:</h3></li>
+                <ol>
+                    <li>
+                        <a href="https://www.timeanddate.com/worldclock//">
+                            View World Times
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Unix_time">
+                            Learn About Epoch Time
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.timeanddate.com/time/aboututc.html">
+                            Learn About UTC Time
+                        </a>
+                    </li>
+                </ol>
+        </ul>
+    </footer>
+{% endblock %}
