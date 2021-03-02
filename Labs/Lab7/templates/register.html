@@ -1,0 +1,33 @@
+<!-- Use Jinja2 to extend the base html template -->
+{% extends 'bootstrap/base.html' %}
+{%import 'bootstrap/wtf.html' as wtf %}
+
+
+<!-- Custom body for this page -->
+{% block content %}
+    <!-- Custom styles for this template -->
+    <link href="/static/css/forms.css" rel="stylesheet">
+
+    <div style="margin-left: 10%; margin-right: 10%; margin-bottom: 10%;">
+        <img src="/static/img/wood_clocks.png" alt="Prague Clock" class="center_img">
+        <h1>Registration Page</h1>
+        <ul>
+            <h4>Password must:</h4>
+            <ol>
+                <li><p>Be 12 to 80 characters</p></li>
+                <li><p>Include at least 1 uppercase character</p></li>
+                <li><p>Include at least 1 lowercase character</p></li>
+                <li><p>Include at least 1 special character</p></li>
+                <li><p>Include at least 1 number</p></li>
+            </ol>
+        </ul>
+        <form method="POST" action="/register" id="register_form">
+            {{ form.csrf_token }}
+            <hr>
+                {{ wtf.quick_form(form) }}
+            </hr>
+        </form>
+    </div>
+{% endblock %}
+
+

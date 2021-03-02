@@ -1,0 +1,25 @@
+<!-- Use Jinja2 to extend the base html template -->
+{% extends 'base.html' %}
+
+<!-- Custom body for this page -->
+{% block content %}
+    <header class="header">
+        <h1>Welcome to the Web Application for Lab 6</h1>
+        <h2>This site is dedicated to all things time</h2>
+    </header>
+    <div class="form_div">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <h2 style="color: white;">**Alert**</h2>
+                {%for message in messages %}
+                <h2 style="color: white;">{{ message }}</h2>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="/" id="user_action_selection">
+            {{ form.csrf_token }}
+            <button type="submit" value="submit" name="login_button">Login</button>
+            <button type="submit" value="submit" name="register_button">Register</button>
+        </form>
+    </div>
+{% endblock %}

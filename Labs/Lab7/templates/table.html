@@ -1,0 +1,120 @@
+<!-- Use Jinja2 to extend the base html template -->
+{% extends 'bootstrap/base.html' %}
+{%import 'bootstrap/wtf.html' as wtf %}
+
+<!-- Custom body for this page -->
+{% block content %}
+    <!-- Custom styles for this template -->
+    <link href="/static/css/forms.css" rel="stylesheet">
+    <img src="/static/img/rolex.png" alt="Rolex", class="center_img">
+    <div style="text-align: center;">
+        <h2>Table of Time Related Links</h2>
+        <table class="table" style="text-align: center;">
+            <tr>
+                <th><h3>Time Knowledge</h3></th>
+                <th><h3>Oldest Clocks</h3></th>
+                <th><h3>Most Accurate Clocks</h3></th>
+                <th><h3>Best Watch Brands</h3></th>
+
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.timeanddate.com/worldclock//">
+                    View World Times
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Salisbury_Cathedral_clock">
+                    Salisbury Cathedral Clock
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/NIST-F2">
+                    NIST-F2
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.rolex.com/">
+                    Rolex
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Unix_time">
+                    Learn About Epoch Time
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Wells_Cathedral_clock">
+                    Wells Cathedral Clock
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.nist.gov/news-events/news/2015/04/getting-better-all-time-jila-strontium-atomic-clock-sets-new-records">
+                    NIST JILA Strontium
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.omegawatches.com/en-us/">
+                    Omega
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.timeanddate.com/time/aboututc.html">
+                    Learn About UTC Time
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Gros_Horloge">
+                    Gros-Horloge
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.nist.gov/news-events/news/2019/07/nists-quantum-logic-clock-returns-top-performance">
+                    NIST Quantum Logic Clock
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.bulova.com/">
+                    Bulova
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Time">
+                    Time - General Info
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Prague_astronomical_clock">
+                    Prague Orloj
+                    </a>
+                </td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Shortt%E2%80%93Synchronome_clock">
+                    Shortt-Synchronome Clock
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.gshock.com/">
+                    G-Shock (Casio)
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <form method="POST" action="/table">
+            {{ form.csrf_token }}
+            <button type="submit" value="submit" name="logout_button">Logout</button>
+        </form>
+    </div>
+    <div>
+        <ul style="list-style-type: none; position: relative;">
+            <li><h4>Server Time: {{ server_time }}</h4></li>
+            <li><h4>UTC Time: {{ utc_time }}</h4></li>
+        </ul>
+    </div>
+{% endblock %}
